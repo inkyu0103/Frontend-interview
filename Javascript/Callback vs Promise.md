@@ -29,7 +29,25 @@
    setTimeout(sayHi, 1000); // 1초 뒤에 출력
    ```
 
-3. 왜 사용할까?
+3. Callback Hell
+   한 번쯤은 들어보았을만한 `Callback hell`. 콜백을 사용하지 않는 가장 큰 이유가 아닐까 싶다.
+
+비동기 작업을 처리 한 후의 결과를 가지고 특정 작업을 한다고 생각해보자. 비동기 작업은 언제 끝날지 모른다는 특징을 가지고 있기 때문에, 그 결과가 나올 때까지 계속...
+
+```javascript
+const NewGalaxyTabPrice = 1000000;
+let myMoney = 1000000;
+
+function takeMyMoney(price) {
+  return setTimeout(() => {
+    myMoney -= price;
+  }, 3000);
+}
+
+takeMyMoney(NewGalaxyTabPrice);
+
+console.log(myMoney); // 1000000 이것은 기적이다.
+```
 
 ### Promise
 

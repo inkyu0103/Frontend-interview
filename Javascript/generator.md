@@ -15,7 +15,7 @@
    function* generator() {}
    ```
 
-   Arrow function으로도 제너레이터 함수를 만들 수 있을까?
+   Arrow function으로도 제너레이터 함수를 만들 수 있을까? 못만든다.
 
 3. generator === iterable object?
 

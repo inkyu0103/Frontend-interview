@@ -4,6 +4,7 @@
 
 this는 자신이 속한 객체 또는 자신이 생성할 인스턴스를 가리키는 자기 참조 변수(self-reference variable)이다.
 this를 통해 자신이 속한 객체 또는 자신이 생성할 인스턴스의 프로퍼티나 메서드를 참조할 수 있다.
+런타임시 결정된다.
 
 ### 1. this는 어떻게 결정되는가?
 
@@ -96,11 +97,13 @@ this를 통해 자신이 속한 객체 또는 자신이 생성할 인스턴스�
   }
 
   function Food(name, price) {
+    // 생성자와 같은 역할을 한다.
     Product.call(this, name, price);
     this.category = "food";
   }
 
   function Toy(name, price) {
+    // 생성자와 같은 역할을 한다.
     Product.call(this, name, price);
     this.category = "toy";
   }
@@ -108,3 +111,24 @@ this를 통해 자신이 속한 객체 또는 자신이 생성할 인스턴스�
   var cheese = new Food("feta", 5);
   var fun = new Toy("robot", 40);
   ```
+
+**apply**
+Call이 사용되는 인수를 인자로 각각 넘겼다고 하면, apply는 인자들을 배열을 통해 한 번에 넘긴다.
+
+**bind**
+call과 apply와 달리 bind는 함수를 반환한다. MDN 예제를 살펴보자.
+
+```javascript
+const module = {
+  x: 42,
+  getX: function () {
+    return this.x;
+  },
+};
+
+const unboundGetX = module.getX;
+console.log(unboundGetX()); // 이 실행 결과는 놀랍게도, undefined다. 메소드로 실행하는 것이 아닌, 함수로 실행하는 것이기 때문이다.
+
+const boundGetX = unboundGetX.bind(module);
+console.log(boundGetX()); //42
+```

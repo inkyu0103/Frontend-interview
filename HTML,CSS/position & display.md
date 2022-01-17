@@ -14,10 +14,10 @@
 |  sticky  |            O            |             O             | 테이블 관련 요소를 포함해 가장 가까운 스크롤 되는 조상, 표 관련 요소를 포함한 컴테이닝 블록 |
 
 static : 가장 기본
-relative :
-fixed :
-absolute :
-sticy :
+relative : static을 기준으로 offset에 의해 배치된다.
+fixed : 뷰포트를 기준으로 고정되는 값
+absolute : 기준이 되는 컨테이너에 대하여 상대적 위치에 고정된다.
+sticy : 기본적으로 static처럼 적용되다가, 스크롤을 내리면, fixed처럼 뷰포트에 고정된다.
 
 # Display
 
@@ -28,6 +28,8 @@ block : 다른 엘리먼트들을 다른 줄로 밀어내고, 혼자 한 줄을 
 
 inline block : 기본적으로 inline 엘리먼트처럼 동작하되, 기존에 무시되었던 width와 height를 적용할 수 있다.
 
-flex
-grid
-none
+flex : 항목을 행 또는 열에 정렬하기 위한 방식
+
+grid :
+
+none : 일반적인 흐름에서 완전히 없앤다.
