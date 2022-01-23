@@ -4,11 +4,49 @@
 
 ### useState
 
+useState를 통해서 함수컴포넌트에서도 상태를 유지할 수 있게 되었다.
+어떻게 상태를 유지할 수 있는가에 대해서는 **클로저**에 대한 이해가 필요하다.
+
+[Closure 바로가기](../Javascript/closure.md)
+
+**생각해 볼 만한 상황**
+
+1. 동기적으로 수
+
+```javascript
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const addCount = () => {
+    setCount(count + 1);
+  };
+
+  const addDoubleCount = () => {
+    setCount(count + 1);
+    setCount(count + 1);
+  };
+}
+
+function useState(defaultState = null) {
+  const initialState = defaultState;
+  const state = () => {
+    return initialState;
+  };
+  const setState = (targetState) => {
+    initialState = targetState;
+  };
+
+  return [state, setState];
+}
+```
+
 ### useEffect (useLayoutEffect)
 
 ### useReducer
 
 ### useCallback
+
+>
 
 ### useMemo (vs React.Memo)
 

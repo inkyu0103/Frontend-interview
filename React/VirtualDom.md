@@ -63,4 +63,43 @@ app.innerHTML = childElement; // 한 번에 반영
 
 > Key는 React가 어떤 항목을 변경, 추가 또는 삭제할지 식별 하는데 도움을 준다.
 
-인덱스를 key로 사용하는 경우 발생하는 문제? 효율적이지 못하는 경우가 발생. 어떤 값을 추가 할 때, 키가 달라지므로 모든 값을 다 바꿔야 한다. (딱히 키때문에 렌더링 결과가 달라진다거나 하지는 않는다.)
+인덱스를 key로 사용하는 경우 발생하는 문제는 무엇일까?
+렌더링을 하는데에 문제가 발생하는 것은 아니다. 다만, 비효율적인 비교과정을 거칠 뿐.
+
+다음 예시를 생각해보자.
+
+```javascript
+// 초기 coinList -> const coinList=["BTC","ETH"]
+function showCoin(coinList) {
+
+  ...
+
+  return(
+    coinList.map((coin,idx)=>{
+      return <div key={idx}>{coin}</div>
+    })
+  )
+}
+```
+
+예상 결과
+
+```javascript
+  <div key=0>BTC</div>
+  <div key=1>ETH</div>
+```
+
+이때 coinList에 새로운 코인을 추가했다고 가정해보자.
+
+```javascript
+coinList.push("SOL");
+console.log(coinList); // ["BTC","ETH","SOL"]
+```
+
+예상 결과
+
+```javascript
+  <div key=0>BTC</div>
+  <div key=1>ETH</div>
+  <div key=2>SOL</div>
+```
