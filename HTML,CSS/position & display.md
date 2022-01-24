@@ -13,13 +13,16 @@
 |  fixed   |            X            |             X             |                                 뷰포트의 초기 컨테이닝 블록                                 |
 |  sticky  |            O            |             O             | 테이블 관련 요소를 포함해 가장 가까운 스크롤 되는 조상, 표 관련 요소를 포함한 컴테이닝 블록 |
 
-static : 가장 기본
+static : 일반적인 흐름에 따라/마크업 순서에 따라 배치된다.
 relative : static을 기준으로 offset에 의해 배치된다.
 fixed : 뷰포트를 기준으로 고정되는 값
 absolute : 기준이 되는 컨테이너에 대하여 상대적 위치에 고정된다.
 sticy : 기본적으로 static처럼 적용되다가, 스크롤을 내리면, fixed처럼 뷰포트에 고정된다.
 
 # Display
+
+1. 정의
+   HTMl요소의 표현 방식을 지정
 
 flow ( block , inline, inline block)
 
